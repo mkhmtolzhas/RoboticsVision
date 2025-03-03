@@ -1,10 +1,12 @@
 from ultralytics import YOLO
 from ultralytics.nn.tasks import DetectionModel
+from phone_call import call_to_number
 import torch
 import cv2
 
 model = DetectionModel()
 torch.load('best.pt', weights_only=False)
+called = False
 
 
 model = YOLO('best.pt')
@@ -23,7 +25,9 @@ while cap.isOpened():
         results = model(frame)
 
         if results[0].boxes.shape[0] > 0:
-            print("Обнаружен объект!")
+            if not called:
+                call_to_number(phone_number="77767301903")
+                called = True
 
         annotated_frame = results[0].plot()
 

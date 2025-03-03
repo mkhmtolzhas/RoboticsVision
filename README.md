@@ -25,19 +25,28 @@
     source venv/bin/activate
     ```
 
-
-2. Установи зависимости:
+3. Установи зависимости:
     ```bash
     pip install -r requirements.txt
+    ```
+
+4. Создай файл `.env` на основе `.env.example`:
+    ```bash
+    cp .env.example .env
+    ```
+
+5. Заполни файл `.env`
+    ```bash
+    INFOBIP_API_KEY=
+    INFOBIP_API_URL=
     ```
 
 ## Usage
 
 1. Просто запустите main.py:
-```bash
-python main.py
-```
-
+    ```bash
+    python main.py
+    ```
 
 ## Важно!
 
